@@ -65,12 +65,10 @@ class News extends Component {
         favorite.title.toLowerCase() === news[index].title.toLowerCase()
     );
     if (isExists > -1) {
-      console.log("removed");
       tempFavorites.splice(isExists, 1);
     } else {
       tempFavorites.push(news[index]);
     }
-    console.log("fav", tempFavorites);
     this.props.setFavorites({
       tempFavs: tempFavorites,
       isFavs: this.props.toggle[1].status,
@@ -113,9 +111,6 @@ class News extends Component {
                       title="Favorites"
                       onClick={() => this.addFavorites(index)}
                       alt="Star"
-                      // onMouseEnter={() => this.setState({ isHover: true })}
-                      // onMouseLeave={() => this.setState({ isHover: false })}
-                      // height="20"
                       fill={this.isFavorite(index) ? "red" : "gray"}
                       stroke="#000"
                       className="cursor-pointer min-w-[30px] min-h-[30px] ml-auto pr-2 h-[30px] w-[30px]"
@@ -134,8 +129,6 @@ class News extends Component {
                   title="Favorites"
                   onClick={() => this.addFavorites(current_headline)}
                   alt="Star"
-                  // onMouseEnter={() => this.setState({ isHover: true })}
-                  // onMouseLeave={() => this.setState({ isHover: false })}
                   height="20"
                   fill={this.isFavorite(current_headline) ? "red" : "gray"}
                   stroke="#000"

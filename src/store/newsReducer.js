@@ -47,7 +47,6 @@ const NewsReducer = function (state = initialState, action) {
           news: [...action.payload.tempFavs],
         };
       } else {
-        console.log("reducer", action.payload.tempFavs);
         new_state = {
           ...state,
           favorites: [...action.payload.tempFavs],
@@ -56,7 +55,6 @@ const NewsReducer = function (state = initialState, action) {
       break;
 
     case "SET_SOURCE_SUCCESS":
-      console.log("reducer", action.payload);
       if (action.payload.id === -1) {
         new_state = {
           ...state,
