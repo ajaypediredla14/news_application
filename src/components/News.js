@@ -45,9 +45,10 @@ class News extends Component {
   //checking whther news headline is in favorite or not
   isFavorite = (index) => {
     const { news, favorites } = this.props;
-    console.log("exists", favorites, news[index]);
-    let isExists = favorites.indexOf(news[index]);
-    console.log("exists index", isExists);
+    let isExists = favorites.findIndex(
+      (favorite) =>
+        favorite.title.toLowerCase() === news[index].title.toLowerCase()
+    );
     if (isExists > -1) {
       return true;
     } else {
@@ -59,9 +60,10 @@ class News extends Component {
   addFavorites = (index) => {
     const { news, favorites } = this.props;
     const tempFavorites = [...favorites];
-    console.log("object", news[index], tempFavorites);
-    let isExists = tempFavorites.indexOf(news[index]);
-    console.log("exit", isExists);
+    let isExists = favorites.findIndex(
+      (favorite) =>
+        favorite.title.toLowerCase() === news[index].title.toLowerCase()
+    );
     if (isExists > -1) {
       console.log("removed");
       tempFavorites.splice(isExists, 1);
@@ -93,16 +95,17 @@ class News extends Component {
                 {news.map((news, index) => (
                   <li
                     key={`news-${index}`}
-                    className="flex  justify-start cursor-pointer items-start text-start p-2 hover:bg-[#ECF9F7] "
+                    className="flex  justify-center cursor-pointer items-start text-start p-2 hover:bg-[#ECF9F7] "
                     onClick={() => this.handleCurrentHeadline(index)}
                   >
                     <img
                       src={news.urlToImage}
                       className="md:w-32 md:h-20 w-20 h-14"
                       alt="img"
+                      loading="lazy"
                       title="Headline"
                     />
-                    <div className="flex px-2  flex-col">
+                    <div className="flex px-2 flex-col max-w-[300px]">
                       <p className="text-sm">{news.title}</p>
                       <p>Published at : {this.dateFormat(news.publishedAt)}</p>
                     </div>
@@ -112,17 +115,16 @@ class News extends Component {
                       alt="Star"
                       // onMouseEnter={() => this.setState({ isHover: true })}
                       // onMouseLeave={() => this.setState({ isHover: false })}
-                      height="20"
+                      // height="20"
                       fill={this.isFavorite(index) ? "red" : "gray"}
                       stroke="#000"
-                      className="cursor-pointer ml-auto pr-2"
+                      className="cursor-pointer min-w-[30px] min-h-[30px] ml-auto pr-2 h-[30px] w-[30px]"
                     />
                   </li>
                 ))}
               </ul>
             </div>
             {/* {section -3 showing particular headline in detail} */}
-            {console.log("head", news[current_headline])}
             <div className="flex p-3 flex-col lg:w-[50%] w-[100%] items-start justify-star">
               <div className="flex text-start items-center justify-between w-full py-2">
                 <p className="font-bold text-sm w-[80%] font-poppins text-[#017668]">
@@ -144,6 +146,7 @@ class News extends Component {
                 <img
                   src={news[current_headline]?.urlToImage}
                   alt="img"
+                  loading="lazy"
                   title="Headline"
                 />
                 <p>{news[current_headline]?.content}</p>
@@ -158,7 +161,12 @@ class News extends Component {
       </>
     ) : (
       <div className="flex w-full items-center justify-center h-full">
-        <img alt="loading" src={load} className="animate-spin mr-2 w-6 h-6" />
+        <img
+          alt="loading"
+          src={load}
+          className="animate-spin mr-2 w-6 h-6"
+          loading="lazy"
+        />
       </div>
     );
   }

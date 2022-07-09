@@ -47,6 +47,7 @@ const NewsReducer = function (state = initialState, action) {
           news: [...action.payload.tempFavs],
         };
       } else {
+        console.log("reducer", action.payload.tempFavs);
         new_state = {
           ...state,
           favorites: [...action.payload.tempFavs],
