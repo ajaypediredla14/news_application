@@ -19,6 +19,7 @@ News fetching React Application which fetches all the news sources from the News
 * Responsive tablet : https://i.ibb.co/5knrFGW/responsive.png
 
 ## Setup
+* git clone https://github.com/jay-498/news_application.git
 * npm install
 * npm run start
 
