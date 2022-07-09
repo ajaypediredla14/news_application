@@ -1,19 +1,23 @@
 # News Application
-News fetching application which fetches all the news sources from the News api and shows all the headlines based on the user Interaction.
+News fetching React Application which fetches all the news sources from the News api and shows all the articles based on the user Interaction.
+
 ## General Information
 - MainNews.js is the main Parent component
-- Sources.js --- sub components
-- News.js ---  sub components
+- Sources.js --- sub component
+- News.js ---  sub component
+
 ## Technologies Used
 * HTML
 * CSS
 * JavaScript
 * React
+
 ## Screenshots
 * favorites page: https://i.ibb.co/F8XzkXh/favorites.png
 * Responsive_mobile : https://i.ibb.co/fYgMPQs/responsive-mobile.png
 * Main Page :  https://i.ibb.co/68q4tdg/main.png
 * Responsive tablet : https://i.ibb.co/5knrFGW/responsive.png
+
 ## Setup
 npm install
 npm run start
