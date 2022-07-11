@@ -47,7 +47,7 @@ class News extends Component {
     const { news, favorites } = this.props;
     let isExists = favorites.findIndex(
       (favorite) =>
-        favorite.title.toLowerCase() === news[index].title.toLowerCase()
+        favorite?.title.toLowerCase() === news[index]?.title?.toLowerCase()
     );
     if (isExists > -1) {
       return true;
@@ -62,7 +62,7 @@ class News extends Component {
     const tempFavorites = [...favorites];
     let isExists = favorites.findIndex(
       (favorite) =>
-        favorite.title.toLowerCase() === news[index].title.toLowerCase()
+        favorite?.title?.toLowerCase() === news[index]?.title?.toLowerCase()
     );
     if (isExists > -1) {
       tempFavorites.splice(isExists, 1);
@@ -104,7 +104,7 @@ class News extends Component {
                       title="Headline"
                     />
                     <div className="flex px-2 flex-col max-w-[300px]">
-                      <p className="text-sm">{news.title}</p>
+                      <p className="text-sm">{news?.title}</p>
                       <p>Published at : {this.dateFormat(news.publishedAt)}</p>
                     </div>
                     <StarIcon

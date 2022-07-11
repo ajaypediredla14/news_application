@@ -55,7 +55,7 @@ class MainNews extends Component {
           {/* {calling child component by passing data and a call back function via props} */}
           <Sources toggle={toggle} handleToggle={this.handleToggle} />
         </div>
-        <div className="h-[calc(100vh-2rem) shadow-md py-4 px-2 w-full lg:overflow-hidden overflow-scroll scrollbar ">
+        <div className="h-[calc(100vh-2rem)] shadow-md py-4 px-2 w-full lg:overflow-hidden overflow-scroll scrollbar ">
           <News toggle={toggle} />
         </div>
       </div>
